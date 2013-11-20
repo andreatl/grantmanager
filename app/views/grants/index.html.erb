@@ -1,0 +1,9 @@
+<h2>Grants</h2>
+ 
+<% @grants.each do |g| %>
+  <%= g.title %> -
+  <%= g.organization %> -
+  <%= g.value %> -
+  <%= g.duedate %> -
+  <br />
+<% end %>

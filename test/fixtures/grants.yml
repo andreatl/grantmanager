@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  organization: MyString
+  value: 1
+  duedate: 2013-11-20
+
+two:
+  title: MyString
+  organization: MyString
+  value: 1
+  duedate: 2013-11-20
