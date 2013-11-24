@@ -1,0 +1,26 @@
+<h2>Edit <%= @grant.title %></h2>
+
+<%= form_for @grant do |form| %>
+ 	<div>
+    	<%= form.label :title %><br />
+    	<%= form.text_field :title %>
+	</div>
+
+  	<div>
+    	<%= form.label :organization %><br />
+    	<%= form.text_field :organization %>
+  	</div>
+
+  	<div>
+    	<%= form.label :value %><br />
+    	<%= form.text_field :value %>
+  	</div>
+
+  	<div>
+    	<%= form.label :duedate %><br />
+    	<%= form.date_select :duedate %>
+  	</div>
+
+<p><%= form.submit %></p>
+
+<% end %>

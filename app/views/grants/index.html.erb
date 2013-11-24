@@ -1,9 +1,27 @@
-<h2>Grants</h2>
- 
-<% @grants.each do |g| %>
-  <%= g.title %> -
-  <%= g.organization %> -
-  <%= g.value %> -
-  <%= g.duedate %> -
-  <br />
-<% end %>
+<div class="page-header">
+	<h1>Grant Tracking <small>Trackin' all the grantzz</small></h1>
+ 	<p><%= link_to "Add a new grant", new_grant_url, :class=> "btn btn-primary btn-large" %></p>
+</div>
+
+<table class="table table-striped">
+	<thead>
+		<th>Grant Title</th>
+		<th>Organization</th>
+		<th>Award Value</th>
+		<th>Application Date</th>
+		<th>Actions</th>
+	</thead>
+
+	<tbody>
+		<% @grants.each do |g| %>
+  			<tr>
+  				<td><%= link_to g.title, grant_path(g) %></td>
+  				<td><%= g.organization %></td>
+  				<td><%= number_to_currency g.value %></td>
+  				<td><%= g.duedate %></td>
+  				<td><%= link_to "Edit", edit_grant_path(g) %> or
+  					<%= link_to "Delete", g, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  			</tr>
+  		<% end %>
+  </tbody>
+ </table>

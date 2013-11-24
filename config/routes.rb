@@ -1,6 +1,15 @@
 Grantmgmt::Application.routes.draw do
-  resources :grants
-  root :to => 'grants#index'
+resources :tasks
+
+resources :grants do  
+    resources :tasks do
+      member do
+        post :complete
+      end
+    end
+end
+
+root :to => 'grants#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

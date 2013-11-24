@@ -1,0 +1,20 @@
+<h2><%= @grant.title %></h2>
+<p><%= @grant.duedate %></p>
+
+<h3>Proposal Tasks</h3>
+<ul>
+	<% @grant.tasks.each do |a_task| %>
+		<li>
+			<%= a_task.description %> <%= check_box_tag  "checkbox", a_task.complete, value=a_task.complete %> 
+			<%= button_to "Complete", complete_grant_task_path(@grant.id, a_task.id) %>
+		</li>
+	<% end %>
+</ul>
+
+<h3>Add Task</h3>
+<p>Add additional tasks for the proposal completion.</p>
+
+<%= form_for [@grant, @grant.tasks.new] do |form| %>
+	<%= form.text_field :description %>
+	<%= form.submit %>
+<% end %>
